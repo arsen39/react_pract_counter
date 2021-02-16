@@ -1,0 +1,13 @@
+.counterSetupsWrapper{
+  padding: 10px 20px;
+  border: 5px solid black;
+}
+
+.directBtn{
+  font-weight: bolder;
+  padding: 10px 20px;
+  border: transparent;
+  border-radius:5px;
+  outline: none;
+  background-color: rgb(226, 247, 191);
+}

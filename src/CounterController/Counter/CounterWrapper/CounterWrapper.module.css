@@ -1,0 +1,22 @@
+.counterWrapper {
+  width: 40%;
+  padding: 10px 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 5px solid black;
+}
+
+.counterDisplay {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.counterActionBtn {
+  font-weight: bolder;
+  padding: 10px 20px;
+  border: transparent;
+  border-radius:5px;
+  outline: none;
+  background-color: rgb(226, 247, 191);
+}
