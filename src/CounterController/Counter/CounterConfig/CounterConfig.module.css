@@ -1,6 +1,10 @@
 .counterSetupsWrapper{
   padding: 10px 20px;
+}
+
+.counterSetupsInnerWrapper{
   border: 5px solid black;
+  padding: 10px 20px;
 }
 
 .directBtn{
@@ -10,4 +14,8 @@
   border-radius:5px;
   outline: none;
   background-color: rgb(226, 247, 191);
+}
+
+.hidden {
+  visibility: hidden;
 }

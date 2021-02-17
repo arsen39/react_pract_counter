@@ -12,6 +12,8 @@ class Counter extends Component {
       autoclickInterval: 1,
       isAutoclickOn: true,
       intervalKey: null,
+      timeoutKey: null,
+      isSetsOpen: false
     };
   }
   
@@ -19,6 +21,12 @@ class Counter extends Component {
     const interval = Math.round(1000/this.state.autoclickInterval);
     this.setState({
       intervalKey: setInterval (() => this.counterAction(), interval)
+    })
+  }
+
+  setsOpenClose = () => {
+    this.setState({
+      isSetsOpen: !this.state.isSetsOpen
     })
   }
 
@@ -36,11 +44,15 @@ class Counter extends Component {
       autoclickInterval: isNaN(v)||v<1?1:Number(v)
     });
     this.autoclickStop();
-    this.autoclickStart()
+    this.autoclickHandler();
+      this.setState({
+        isAutoclickOn: true
+      })
   };
 
   autoclickStop = () => {
     clearInterval(this.state.intervalKey);
+    clearTimeout(this.state.timeoutKey);
     this.setState({
       intervalKey: null,
       isAutoclickOn: false
@@ -64,6 +76,10 @@ class Counter extends Component {
 
   componentDidMount = () => {
     this.autoclickHandler();
+    this.setState({
+      timeoutKey: setTimeout(()=> this.autoclickStop(),30000)
+    })
+    
   }
 
   render() {
@@ -83,6 +99,8 @@ class Counter extends Component {
           autoclickStop={this.autoclickStop}
           autoclickInterval={this.state.autoclickInterval}
           intervalSetStep={this.intervalSetStep}
+          isSetsOpen={this.state.isSetsOpen}
+          setsOpenClose={this.setsOpenClose}
         />
       </section>
     );
